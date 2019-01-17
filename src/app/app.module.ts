@@ -11,6 +11,8 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 
 import { AppRoutingModule } from './app-routing.module';
+import {TournamentComponent} from './tournaments/tournaments.component';
+import {MatchComponent} from './match/match.component';
 
 @NgModule({
   imports: [
@@ -22,7 +24,9 @@ import { AppRoutingModule } from './app-routing.module';
   declarations: [
     HeaderComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    TournamentComponent,
+    MatchComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

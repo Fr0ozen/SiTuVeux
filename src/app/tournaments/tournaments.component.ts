@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Tournament } from '../class/Tournament';
-import { Arena } from '../class/arena';
+import { Tournament } from '../_models/Tournament';
+import { Arena } from '../_models/Arena';
 
 @Component({
   selector: 'app-tournaments',
@@ -24,4 +24,4 @@ export const Tournois: Tournament[] = [
  ,{id:3, arena: {id: 3, town:'Montpellier', name:'Zenith Sud de France'}, name:'Qualifiers', cashprize:0, sponsor: 'Vodafone'}
  ,{id:4, arena: {id: 4, town:'Séoul', name:'LoL Park'}, name:'Qualifiers', cashprize:0, sponsor: 'TRTO'}
  ,{id:5, arena: {id: 2, town:'Montpellier', name:'Zenith Sud de France'}, name:'Qualifiers', cashprize:0, sponsor: 'MSI'}
-]; 
+];
