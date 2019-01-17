@@ -1,0 +1,25 @@
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <div class="container-fluid">
+    <ul class="tournaments">
+      <table class="table table-dark">
+        <tr>
+          <th>Nom</th>
+          <th>Ville</th>
+          <th>Arène</th>
+          <th>Cashprize</th>
+          <th>Sponsor</th>
+        </tr>
+        <tr *ngFor="let tournament of tournaments" scope="row">
+          <td class="">{{ tournament.name }}</td>
+          <td class="">{{ tournament.arena.town }}</td>
+          <td class="">{{ tournament.arena.name }}</td>
+          <td class="">{{ tournament.cashprize }}$</td>
+          <td class="">{{ tournament.sponsor }}</td>
+        </tr>
+      </table>
+    </ul>
+  </div>
+</div>

@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { TestComponent } from './test/app.component';
-import { Test2Component } from './test2/app.component';
+import { TournamentComponent } from './tournaments/tournaments.component';
+import { MatchComponent } from './match/match.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/test', pathMatch: 'full' },
-  { path: 'test', component: TestComponent },
-  { path: 'test2', component: Test2Component }
+  { path: '', redirectTo: '/tournaments', pathMatch: 'full' },
+  { path: 'tournaments', component: TournamentComponent },
+  { path: 'match', component: MatchComponent }
 ];
 
 @NgModule({
