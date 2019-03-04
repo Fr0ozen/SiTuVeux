@@ -11,6 +11,7 @@ import { User } from '../_models/user';
 })
 export class HeaderComponent {
   currentUser: User;
+  navbarCollapsed = true;
 
   constructor(private router: Router, private authenticationService: AuthenticationService) {
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);

@@ -1,0 +1,36 @@
+.background-csgo {
+  max-width: 100%;
+  height: auto;
+  background-size: cover;
+  background-position: center center;
+  border-bottom: 3px solid #f68b1f;
+}
+
+.tournament-background {
+  background-color: black;
+}
+
+.live-container {
+  margin-top: 8%;
+}
+
+.live-title {
+  color: white;
+  font-size: 30px;
+  font-weight: 700;
+  vertical-align: middle;
+  margin-left: 3%;
+}
+
+.live-icon {
+  width: 10%;
+  vertical-align: middle;
+  position: relative;
+  animation: live 2s infinite;
+}
+
+@keyframes live {
+  0%   { z-index: -1; }
+  50%   { z-index: 1; }
+  100% { z-index: -1; }
+}
