@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'tournaments', component: TournamentComponent },
   { path: 'match', component: MatchComponent },
-  { path: '**', redirectTo: '/login', pathMatch: 'full' }
+  { path: '**', redirectTo: '/tournaments', pathMatch: 'full' }
 ];
 
 @NgModule({

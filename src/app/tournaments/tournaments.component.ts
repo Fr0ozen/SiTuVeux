@@ -19,9 +19,9 @@ export class TournamentComponent {
 }
 
 export const Tournois: Tournament[] = [
-  {id:1, arena: {id: 1, name:'Arena', town:'Pérols'}, name:'Sud de France CS GO', cashprize:50000, sponsor: 'Agglo Montpellier'}
- ,{id:2, arena: {id: 3, town:'Montpellier', name:'Zenith Sud de France'}, name:'Major', cashprize:700000, sponsor: 'Twitch'}
- ,{id:3, arena: {id: 3, town:'Montpellier', name:'Zenith Sud de France'}, name:'Qualifiers', cashprize:0, sponsor: 'Vodafone'}
- ,{id:4, arena: {id: 4, town:'Séoul', name:'LoL Park'}, name:'Qualifiers', cashprize:0, sponsor: 'TRTO'}
- ,{id:5, arena: {id: 2, town:'Montpellier', name:'Zenith Sud de France'}, name:'Qualifiers', cashprize:0, sponsor: 'MSI'}
+  {id: 1, arena: {id: 1, name: 'Arena', town: 'Pérols'}, name: 'Sud de France CS GO', cashprize: 50000, sponsor: 'Agglo Montpellier'}
+ , {id: 2, arena: {id: 3, town: 'Montpellier', name: 'Zenith Sud de France'}, name: 'Major', cashprize: 700000, sponsor: 'Twitch'}
+ , {id: 3, arena: {id: 3, town: 'Montpellier', name: 'Zenith Sud de France'}, name: 'Qualifiers', cashprize: 0, sponsor: 'Vodafone'}
+ , {id: 4, arena: {id: 4, town: 'Séoul', name: 'LoL Park'}, name: 'Qualifiers', cashprize: 0, sponsor: 'TRTO'}
+ , {id: 5, arena: {id: 2, town: 'Montpellier', name: 'Zenith Sud de France'}, name: 'Qualifiers', cashprize: 0, sponsor: 'MSI'}
 ];
