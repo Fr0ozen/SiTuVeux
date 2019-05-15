@@ -14,6 +14,13 @@ import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { TournamentComponent } from './tournaments/tournaments.component';
 import { MatchComponent } from './match/match.component';
+import { CreatePlayerComponent } from './createPlayer/createPlayer.component';
+
+import { FormsModule } from '@angular/forms';
+import {CommonModule} from '@angular/common';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: [
@@ -21,14 +28,19 @@ import { MatchComponent } from './match/match.component';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   declarations: [
     HeaderComponent,
     HomeComponent,
     LoginComponent,
     TournamentComponent,
-    MatchComponent
+    MatchComponent,
+    CreatePlayerComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 import { User } from '../_models/user';
 
 @Injectable({ providedIn: 'root' })
-export class AuthenticationService {
+export class LoginService {
     private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
 
@@ -21,8 +21,18 @@ export class AuthenticationService {
 
     login(username: string, password: string) {
         return this.http.post<any>('http://localhost:3000/createToken', { username, password })
-            .pipe(map(user => {
-                if (user && user.token) {
+            .pipe(map(data => {
+                const user: User = new User();
+
+                if (data && data.user && data.token) {
+                    user.id = data.user.id;
+                    user.username = data.user.username;
+                    user.lname = data.user.lname;
+                    user.fname = data.user.fname;
+                    user.nationality = data.user.nationality;
+                    user.age = data.user.age;
+                    user.isorganizer = data.user.isorganizer;
+                    user.token = data.token;
                     localStorage.setItem('currentUser', JSON.stringify(user));
                     this.currentUserSubject.next(user);
                 }

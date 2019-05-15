@@ -1,7 +1,10 @@
 ﻿export class User {
     id: number;
     username: string;
-    firstName: string;
-    lastName: string;
+    lname: string;
+    fname: string;
+    nationality: string;
+    age: number;
+    isorganizer: boolean;
     token?: string;
 }

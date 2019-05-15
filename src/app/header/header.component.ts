@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AuthenticationService } from '../_services/authentication.service';
+import { LoginService } from '../_services/login.service';
 import { User } from '../_models/user';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-header',
   templateUrl: 'header.component.html',
   styleUrls: ['header.component.scss']
 })
@@ -13,12 +13,12 @@ export class HeaderComponent {
   currentUser: User;
   navbarCollapsed = true;
 
-  constructor(private router: Router, private authenticationService: AuthenticationService) {
-    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+  constructor(private router: Router, private loginService: LoginService) {
+    this.loginService.currentUser.subscribe(x => this.currentUser = x);
   }
 
   logout() {
-    this.authenticationService.logout();
+    this.loginService.logout();
     this.router.navigate(['/login']);
   }
 }

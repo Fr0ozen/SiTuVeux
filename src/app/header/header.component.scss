@@ -33,3 +33,7 @@
   color:white;
   margin-top: 5px;
 }
+
+.dropdown-toggle::after {
+  display:none;
+}

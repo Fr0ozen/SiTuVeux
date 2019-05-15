@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-import { AuthenticationService } from '../_services/authentication.service';
+import { LoginService } from '../_services/login.service';
 
 @Component({
   templateUrl: 'login.component.html',
@@ -15,8 +15,7 @@ export class LoginComponent implements OnInit {
     submitted = false;
     error = '';
 
-    constructor(private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router,
-                private authenticationService: AuthenticationService) {}
+    constructor(private formBuilder: FormBuilder, private router: Router, private loginService: LoginService) {}
 
     ngOnInit() {
         this.loginForm = this.formBuilder.group({
@@ -34,7 +33,7 @@ export class LoginComponent implements OnInit {
         // stop here if form is invalid
         if (!this.loginForm.invalid) {
             this.loading = true;
-            this.authenticationService.login(this.f.username.value, this.f.password.value).pipe(first()).subscribe(
+            this.loginService.login(this.f.username.value, this.f.password.value).pipe(first()).subscribe(
                 data => {
                     this.router.navigate(['/home']);
                 },

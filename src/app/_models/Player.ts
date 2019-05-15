@@ -1,7 +1,6 @@
-export class Player{
-    id: number;
-    firstName: string;
-    lastName: string;
+export class Player {
+    fname: string;
+    lname: string;
     pseudo: string;
     level: number;
     origin: string;
