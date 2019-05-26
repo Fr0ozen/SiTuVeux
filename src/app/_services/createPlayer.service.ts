@@ -8,6 +8,6 @@ export class CreatePlayerService {
   constructor(private http: HttpClient) {}
 
   createPlayer(user: User, fname: string, lname: string, pseudo: string, level: number, origin: string, sex: number) {
-    return this.http.post<any>('http://localhost:3000/createPlayer', {'user': user, 'data': {fname, lname, pseudo, level, origin, sex}}).pipe();
+    return this.http.post<any>('http://localhost:3000/createPlayer', {user, 'data': {fname, lname, pseudo, level, origin, sex}});
   }
 }

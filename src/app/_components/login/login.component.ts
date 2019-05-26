@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-import { LoginService } from '../_services/login.service';
+import { LoginService } from '../../_services/login.service';
 
 @Component({
   templateUrl: 'login.component.html',
@@ -11,7 +11,6 @@ import { LoginService } from '../_services/login.service';
 })
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;
-    loading = false;
     submitted = false;
     error = '';
 
@@ -32,14 +31,12 @@ export class LoginComponent implements OnInit {
 
         // stop here if form is invalid
         if (!this.loginForm.invalid) {
-            this.loading = true;
             this.loginService.login(this.f.username.value, this.f.password.value).pipe(first()).subscribe(
                 data => {
                     this.router.navigate(['/home']);
                 },
                 error => {
                     this.error = error;
-                    this.loading = false;
                 }
             );
         }

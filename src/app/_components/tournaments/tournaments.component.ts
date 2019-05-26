@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { Tournament } from '../_models/Tournament';
-import { Arena } from '../_models/Arena';
+import { Tournament } from '../../_models/Tournament';
+import { Arena } from '../../_models/Arena';
 
 @Component({
-  selector: 'app-tournaments',
   templateUrl: './tournaments.component.html',
   styleUrls: ['./tournaments.component.scss']
 })

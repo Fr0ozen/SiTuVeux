@@ -1,0 +1,17 @@
+<div *ngIf="inputDropDownFormGroup !== undefined" class="combo-container">
+	<span class="drop-down" [formGroup]="inputDropDownFormGroup">
+      <input type="text" class="form-control" placeholder="{{placeholder}}" formControlName="{{inputDropDownFormControlName}}"
+              [ngModel]="textToSort"
+              (ngModelChange)="textChange($event)"
+              (keyup)="onKeyDownAction($event)"
+              (focus)="onFocusEventAction()"
+              (blur)="onBlurEventAction()"
+              [ngClass]="{ 'is-invalid': isSubmitted && f[inputDropDownFormControlName].errors }"/>
+    <div *ngIf="isSubmitted && f[inputDropDownFormControlName]" class="invalid-feedback">
+      <div *ngIf="f[inputDropDownFormControlName].errors.required">Le {{inputDropDownFormControlName}} est nécessaire</div>
+    </div>
+  </span>
+	<div class="data-container" *ngIf="showDropDown">
+		<p *ngFor="let data of dummyDataList;" class="input-item ml-2" (mousedown)="updateTextBox(data[columnName])">{{data[columnName]}}</p>
+	</div>
+</div>

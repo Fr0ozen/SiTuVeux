@@ -3,21 +3,19 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {first} from 'rxjs/internal/operators/first';
-import {CreatePlayerService} from '../_services/createPlayer.service';
-import {User} from '../_models/User';
-import {LoginService} from '../_services/login.service';
+import {CreatePlayerService} from '../../_services/createPlayer.service';
+import {User} from '../../_models/User';
+import {LoginService} from '../../_services/login.service';
 
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-createplayer',
   templateUrl: './createPlayer.component.html',
   styleUrls: ['./createPlayer.component.scss']
 })
 
 export class CreatePlayerComponent implements OnInit {
   loginForm: FormGroup;
-  loading = false;
   submitted = false;
   error = '';
   user: User;
@@ -46,20 +44,14 @@ export class CreatePlayerComponent implements OnInit {
 
     // stop here if form is invalid
     if (!this.loginForm.invalid) {
-      this.loading = true;
-      this.createPlayerService.createPlayer(this.user, this.f.fname.value, this.f.lname.value, this.f.pseudo.value, this.f.level.value, this.f.origin.value, parseInt(this.f.sex.value, 10)).pipe(first()).subscribe(
-        data => {
-          this.toastr.success(data.message, 'Succès', {
-            timeOut: 3000,
-            positionClass: 'toast-bottom-right'
-          });
-          this.loading = false;
-        },
-        error => {
-          this.error = error;
-          this.loading = false;
-        }
-      );
+      this.createPlayerService.createPlayer(this.user, this.f.fname.value, this.f.lname.value, this.f.pseudo.value, this.f.level.value, this.f.origin.value, parseInt(this.f.sex.value, 10)).pipe(first()).subscribe(data => {
+        this.toastr.success(data.message, 'Succès', {
+          timeOut: 3000,
+          positionClass: 'toast-bottom-right'
+        });
+      }, error => {
+        this.error = error;
+      });
     }
   }
 }
