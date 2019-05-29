@@ -22,7 +22,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
 import { InputDropdownComponent } from './_components/inputDropdown/inputDropdown.component';
-import { InputDropdownPipe } from './_components/inputDropdown/inputDropdown.pipe';
 import { CreateTeamComponent } from './_components/createTeam/createTeam.component';
 import { SpinnerComponent } from './_components/spinner/spinner.component';
 import { SpinnerInterceptor } from './_interceptors/spinner.interceptor';
@@ -50,7 +49,6 @@ import { OWL_DATE_TIME_LOCALE, OwlDateTimeModule, OwlNativeDateTimeModule } from
     MatchComponent,
     CreatePlayerComponent,
     InputDropdownComponent,
-    InputDropdownPipe,
     CreateTeamComponent,
     SpinnerComponent
   ],

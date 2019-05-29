@@ -1,12 +1,10 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { InputDropdownPipe } from './inputDropdown.pipe';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {Component, Input, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-input-drop-down',
   templateUrl: './inputDropdown.component.html',
-  styleUrls: ['./inputDropdown.component.scss'],
-  providers: [InputDropdownPipe]
+  styleUrls: ['./inputDropdown.component.scss']
 })
 export class InputDropdownComponent implements OnInit {
 
@@ -28,12 +26,14 @@ export class InputDropdownComponent implements OnInit {
   @Input()
   isSubmitted: boolean;
 
+  @Input()
+  errorText: string;
+
   dummyDataList: any[];
   showDropDown: boolean;
   counter: number;
-  textToSort: string;
 
-  constructor(private inputDropdownPipe: InputDropdownPipe) {}
+  constructor() {}
 
   ngOnInit() {
     if (this.inputDropDownFormGroup !== undefined) {
@@ -60,13 +60,13 @@ export class InputDropdownComponent implements OnInit {
     if (event.keyCode === 38) {
        this.counter = (this.counter === 0) ? this.counter : --this.counter;
        this.checkHighlight(this.counter);
-       this.textToSort = this.dataList[this.counter][this.columnName];
+       this.inputDropDownFormControlName = this.dataList[this.counter][this.columnName];
     }
 
     if (event.keyCode === 40) {
       this.counter = (this.counter === this.dataList.length - 1) ? this.counter : ++this.counter;
       this.checkHighlight(this.counter);
-      this.textToSort = this.dataList[this.counter][this.columnName];
+      this.inputDropDownFormGroup.controls[this.inputDropDownFormControlName].setValue(this.dataList[this.counter][this.columnName]);
     }
   }
 
@@ -82,7 +82,7 @@ export class InputDropdownComponent implements OnInit {
   textChange(value) {
     this.dummyDataList = [];
     if (value !== undefined && value.length > 0) {
-      this.dummyDataList = this.inputDropdownPipe.transform(this.dataList, this.columnName, value);
+      this.dummyDataList = this.transform(this.dataList, this.columnName, value);
 
       if (this.dummyDataList) {
         this.showDropDown = true;
@@ -93,7 +93,19 @@ export class InputDropdownComponent implements OnInit {
   }
 
   updateTextBox(valueSelected) {
-    this.textToSort = valueSelected;
+    this.inputDropDownFormGroup.controls[this.inputDropDownFormControlName].setValue(valueSelected);
     this.showDropDown = false;
+  }
+
+  transform(dataToSort: string[], columnNameToSort: string, stringToSort: string): any[] {
+    const sortedData: string[] = [];
+
+    for (let i = 0; i < dataToSort.length; ++i) {
+      if (dataToSort[i][columnNameToSort].search(stringToSort) > -1) {
+        sortedData.push(dataToSort[i]);
+      }
+    }
+
+    return sortedData;
   }
 }

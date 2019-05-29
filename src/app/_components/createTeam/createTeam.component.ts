@@ -49,7 +49,9 @@ export class CreateTeamComponent implements OnInit {
 
     // stop here if form is invalid
     if (!this.loginForm.invalid) {
-
+      alert("valid");
+    } else {
+      alert("invalid");
     }
   }
 }
