@@ -8,6 +8,7 @@ import {User} from '../../_models/User';
 import {LoginService} from '../../_services/login.service';
 
 import { ToastrService } from 'ngx-toastr';
+import {Player} from '../../_models/Player';
 
 @Component({
   templateUrl: './createPlayer.component.html',
@@ -44,11 +45,13 @@ export class CreatePlayerComponent implements OnInit {
 
     // stop here if form is invalid
     if (!this.loginForm.invalid) {
-      this.createPlayerService.createPlayer(this.user, this.f.fname.value, this.f.lname.value, this.f.pseudo.value, this.f.level.value, this.f.origin.value, parseInt(this.f.sex.value, 10)).pipe(first()).subscribe(data => {
+      const player = new Player(this.f.fname.value, this.f.lname.value, this.f.pseudo.value, this.f.level.value, this.f.origin.value, parseInt(this.f.sex.value, 10));
+      this.createPlayerService.createPlayer(this.user, player).pipe(first()).subscribe(data => {
         this.toastr.success(data.message, 'Succès', {
           timeOut: 3000,
           positionClass: 'toast-bottom-right'
         });
+        this.error = "";
       }, error => {
         this.error = error;
       });

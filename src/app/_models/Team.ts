@@ -1,8 +1,13 @@
 import { Player } from './Player';
 
-export class Team{
-    id: number;
+export class Team {
     name: string;
     origin: string;
-    players: Player[];
+    playerList: Player[];
+
+    constructor(name: string, origin: string, playerList: Player[]) {
+      this.name = name;
+      this.origin = origin;
+      this.playerList = playerList;
+    }
 }

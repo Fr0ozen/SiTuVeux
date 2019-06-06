@@ -1,7 +1,7 @@
-﻿/* tslint:disable:max-line-length */
-import { Injectable } from '@angular/core';
+﻿import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {User} from '../_models/User';
+import {Team} from '../_models/Team';
 
 @Injectable({ providedIn: 'root' })
 export class CreateTeamService {
@@ -11,7 +11,7 @@ export class CreateTeamService {
     return this.http.post<any>('http://localhost:3000/getAllPlayer', {user});
   }
 
-  createTeam(user: User, name: string, origin: string) {
-    return this.http.post<any>('http://localhost:3000/createTeam', {user, 'data': {name, origin}});
+  createTeam(user: User, team: Team) {
+    return this.http.post<any>('http://localhost:3000/createTeam', {user, team});
   }
 }
