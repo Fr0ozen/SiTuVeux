@@ -1,0 +1,33 @@
+<div style="text-align:center">
+    <div class="container-fluid tournament-background">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8 col-sm-7 col-md-6">
+                    <div class="live-left">
+                        <div class="live-border">
+                            <ul class="list">
+                                <li>
+                                    <span>
+                                        <div>
+                                            <p class="scores">{{team1Score}}</p>
+                                            <img src="assets/img/kill-one.png" alt="">
+                                            <button (click)="gotRound(0)">Add 1</button>
+                                        </div>
+                                    </span>
+                                    <span><p>vs</p></span>
+                                    <span>
+                                        <div>
+                                            <p class="scores">{{team2Score}}</p>
+                                            <img src="assets/img/kill-two.png" alt="">
+                                            <button (click)="gotRound(1)">Add 1</button>
+                                        </div>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,135 @@
+.background-csgo {
+  max-width: 100%;
+  height: auto;
+  background-size: cover;
+  background-position: center center;
+  border-bottom: 3px solid #f68b1f;
+}
+
+.tournament-background {
+  background-color: black;
+}
+
+.live-title {
+  margin-left: 3%;
+  vertical-align: middle;
+  font-size: 30px;
+  font-weight: 700;
+  color: white;
+}
+
+.live-icon {
+  width: 5%;
+  vertical-align: middle;
+  position: relative;
+  animation: live 2s infinite;
+}
+
+@keyframes live {
+  0%   { z-index: -1; }
+  50%   { z-index: 1; }
+  100% { z-index: -1; }
+}
+
+ul {
+  list-style-type:none;
+}
+
+.live-border {
+  padding: 25px;
+  border: grey solid 1px;
+  margin-bottom: 1%;
+}
+
+.live-left {
+  margin-top: 2%;
+}
+
+.live-left ul li span {
+  width: 32%;
+  display: inline-block;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.live-left ul {
+  border: grey solid 1px;
+  padding: 22px 220px;
+}
+
+.live-left ul li span:first-child {
+  background: #161616;
+  padding: 10px;
+  border: grey solid 1px;
+}
+
+.live-left ul li span:last-child {
+  background: #161616;
+  padding: 10px;
+  border: grey solid 1px;
+}
+
+.live-left img {
+  max-width: 100%;
+}
+
+.recent-match-right {
+  margin-top: 4%;
+}
+
+.recent-match-right ul li span {
+  width: 32%;
+  display: inline-block;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.recent-match-right ul {
+  border: grey solid 1px;
+  padding: 22px 30px;
+}
+
+.recent-match-right ul li span:first-child {
+  background: #161616;
+  padding: 10px;
+  border: grey solid 1px;
+}
+
+.recent-match-right ul li span:last-child {
+  background: #161616;
+  padding: 10px;
+  border: grey solid 1px;
+}
+
+.recent-match-right img {
+  max-width: 100%;
+}
+
+.title-recent-match-right {
+  font-size: 30px;
+  font-weight: 700;
+  padding: 30px 30px;
+  border: grey solid 1px;
+  color: white;
+}
+
+.tournament-list {
+  background: #131325;
+  color: white;
+}
+
+.title-tournament-list {
+  font-size: 30px;
+  font-weight: 700;
+  padding: 30px 30px;
+  border: grey solid 1px;
+  color: white;
+}
+
+.all-tournament {
+  border: grey solid 1px;
+}

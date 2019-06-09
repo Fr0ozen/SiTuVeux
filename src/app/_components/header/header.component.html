@@ -1,0 +1,54 @@
+<app-spinner></app-spinner>
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <img class="logo-epsi-style" src="assets/img/logo_epsi.png">
+    </li>
+  </ul>
+  <button class="navbar-toggler" type="button" (click)="navbarCollapsed = !navbarCollapsed"
+          [attr.aria-expanded]="!navbarCollapsed" aria-controls="navbarContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon">
+      <i class="fa fa-navicon fa-lg"></i>
+    </span>
+  </button>
+  <div class="collapse navbar-collapse" [ngbCollapse]="navbarCollapsed">
+    <ul class="navbar-nav ml-auto">
+      <li ngbDropdown class="nav-item" #myDrop="ngbDropdown" *ngIf="currentUser && currentUser.isorganizer" on-mouseover="$event.stopPropagation(); myDrop.open();" on-mouseleave="$event.stopPropagation(); myDrop.close();">
+        <a class="nav-item nav-link" id="dropdownBasic1" ngbDropdownToggle>
+          <i class="fa fa-plus-circle"></i>
+          Créer
+        </a>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <a class="nav-item nav-link text-dark" routerLink="/createPlayer" ngbDropdownItem>
+            <i class="fa fa-gamepad"></i>
+            Joueur
+          </a>
+          <a class="nav-item nav-link text-dark" routerLink="/createTeam" ngbDropdownItem>
+            <i class="fa fa-users"></i>
+            Equipe
+          </a>
+          <a class="nav-item nav-link text-dark" routerLink="/login" ngbDropdownItem>
+            <i class="fa fa-trophy"></i>
+            Tournoi
+          </a>
+        </div>
+      </li>
+      <li class="nav-item pipe-style" *ngIf="navbarCollapsed">|</li>
+      <li class="nav-item pipe-style" *ngIf="!navbarCollapsed">__________</li>
+      <li class="nav-item" routerLinkActive='active'>
+        <a class="nav-item nav-link" routerLink="/login" *ngIf="!currentUser">
+          <i class="fa fa-user user-icon"></i>
+          Connexion
+        </a>
+        <a class="nav-item nav-link" (click)="logout()" routerLink="/login" *ngIf="currentUser">
+          <i class="fa fa-user user-icon"></i>
+          Déconnexion
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- main app container -->
+<router-outlet></router-outlet>

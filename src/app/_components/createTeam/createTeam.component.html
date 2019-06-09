@@ -1,0 +1,99 @@
+<div class="container mt-5" *ngIf="isDataLoaded">
+  <h1 class="display-1">Création d'une équipe</h1>
+  <form class="mt-3" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Nom</label>
+      <input type="text" class="form-control" formControlName="name" aria-describedby="nameHelp" placeholder="Entrer un nom" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+        <div *ngIf="f.name.errors.required">Le nom est nécessaire</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Origine</label>
+      <input type="text" class="form-control" formControlName="origin" aria-describedby="originHelp" placeholder="Entrer une origine" [ngClass]="{ 'is-invalid': submitted && f.origin.errors }">
+      <div *ngIf="submitted && f.origin.errors" class="invalid-feedback">
+        <div *ngIf="f.origin.errors.required">L'origine est nécessaire</div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <h3>Choix du capitaine</h3>
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label>Pseudonyme</label>
+        <app-input-drop-down [dataList]="dataList" [columnName]="'pseudo'" [placeholder]="'Entrer un pseudonyme'" [inputDropDownFormGroup]="loginForm" [inputDropDownFormControlName]="'capitainePseudonyme'" [isSubmitted]="submitted" [errorText]="'pseudonyme'"></app-input-drop-down>
+      </div>
+      <div class="form-group col-md-3">
+        <label>Date de recrutement</label>
+        <input [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" class="form-control" formControlName="dt1" aria-describedby="dt1Help" placeholder="Entrer une date de recrutement" [ngClass]="{ 'is-invalid': submitted && f.dt1.errors }">
+        <div *ngIf="submitted && f.dt1.errors" class="invalid-feedback">
+          <div *ngIf="f.dt1.errors.required">La date de recrutement est nécessaire</div>
+        </div>
+        <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+      </div>
+    </div>
+    <br>
+    <br>
+    <h3>Choix des joueurs</h3>
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label>Pseudonyme</label>
+        <app-input-drop-down [dataList]="dataList" [columnName]="'pseudo'" [placeholder]="'Entrer un pseudonyme'" [inputDropDownFormGroup]="loginForm" [inputDropDownFormControlName]="'joueur1Pseudonyme'" [isSubmitted]="submitted" [errorText]="'pseudonyme'"></app-input-drop-down>
+      </div>
+      <div class="form-group col-md-3">
+        <label>Date de recrutement</label>
+        <input [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" class="form-control" formControlName="dt2" aria-describedby="dt2Help" placeholder="Entrer une date de recrutement" [ngClass]="{ 'is-invalid': submitted && f.dt2.errors }">
+        <div *ngIf="submitted && f.dt2.errors" class="invalid-feedback">
+          <div *ngIf="f.dt2.errors.required">La date de recrutement est nécessaire</div>
+        </div>
+        <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label>Pseudonyme</label>
+        <app-input-drop-down [dataList]="dataList" [columnName]="'pseudo'" [placeholder]="'Entrer un pseudonyme'" [inputDropDownFormGroup]="loginForm" [inputDropDownFormControlName]="'joueur2Pseudonyme'" [isSubmitted]="submitted" [errorText]="'pseudonyme'"></app-input-drop-down>
+      </div>
+      <div class="form-group col-md-3">
+        <label>Date de recrutement</label>
+        <input [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" class="form-control" formControlName="dt3" aria-describedby="dt3Help" placeholder="Entrer une date de recrutement" [ngClass]="{ 'is-invalid': submitted && f.dt3.errors }">
+        <div *ngIf="submitted && f.dt3.errors" class="invalid-feedback">
+          <div *ngIf="f.dt3.errors.required">La date de recrutement est nécessaire</div>
+        </div>
+        <owl-date-time [pickerType]="'calendar'" #dt3></owl-date-time>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label>Pseudonyme</label>
+        <app-input-drop-down [dataList]="dataList" [columnName]="'pseudo'" [placeholder]="'Entrer un pseudonyme'" [inputDropDownFormGroup]="loginForm" [inputDropDownFormControlName]="'joueur3Pseudonyme'" [isSubmitted]="submitted" [errorText]="'pseudonyme'"></app-input-drop-down>
+      </div>
+      <div class="form-group col-md-3">
+        <label>Date de recrutement</label>
+        <input [owlDateTimeTrigger]="dt4" [owlDateTime]="dt4" class="form-control" formControlName="dt4" aria-describedby="dt4Help" placeholder="Entrer une date de recrutement" [ngClass]="{ 'is-invalid': submitted && f.dt4.errors }">
+        <div *ngIf="submitted && f.dt4.errors" class="invalid-feedback">
+          <div *ngIf="f.dt4.errors.required">La date de recrutement est nécessaire</div>
+        </div>
+        <owl-date-time [pickerType]="'calendar'" #dt4></owl-date-time>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label>Pseudonyme</label>
+        <app-input-drop-down [dataList]="dataList" [columnName]="'pseudo'" [placeholder]="'Entrer un pseudonyme'" [inputDropDownFormGroup]="loginForm" [inputDropDownFormControlName]="'joueur4Pseudonyme'" [isSubmitted]="submitted" [errorText]="'pseudonyme'"></app-input-drop-down>
+      </div>
+      <div class="form-group col-md-3">
+        <label>Date de recrutement</label>
+        <input [owlDateTimeTrigger]="dt5" [owlDateTime]="dt5" class="form-control" formControlName="dt5" aria-describedby="dt5Help" placeholder="Entrer une date de recrutement" [ngClass]="{ 'is-invalid': submitted && f.dt5.errors }">
+        <div *ngIf="submitted && f.dt5.errors" class="invalid-feedback">
+          <div *ngIf="f.dt5.errors.required">La date de recrutement est nécessaire</div>
+        </div>
+        <owl-date-time [pickerType]="'calendar'" #dt5></owl-date-time>
+      </div>
+    </div>
+    <div class="form-group mt-3">
+      <button class="btn btn-primary">Créer l'équipe</button>
+    </div>
+    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+  </form>
+</div>
