@@ -12,7 +12,7 @@ import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
 
 import { AppRoutingModule } from './app-routing.module';
-import { TournamentComponent } from './_components/tournaments/tournaments.component';
+import { TournamentComponent } from './_components/tournament/tournament.component';
 import { MatchComponent } from './_components/match/match.component';
 import { CreatePlayerComponent } from './_components/createPlayer/createPlayer.component';
 
@@ -27,6 +27,7 @@ import { SpinnerComponent } from './_components/spinner/spinner.component';
 import { SpinnerInterceptor } from './_interceptors/spinner.interceptor';
 import { OWL_DATE_TIME_LOCALE, OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { CreateArenaComponent } from './_components/createArena/createArena.component';
+import { CreateTournamentComponent } from './_components/createTournament/createTournament.component';
 
 @NgModule({
   imports: [
@@ -52,7 +53,8 @@ import { CreateArenaComponent } from './_components/createArena/createArena.comp
     InputDropdownComponent,
     CreateTeamComponent,
     SpinnerComponent,
-    CreateArenaComponent
+    CreateArenaComponent,
+    CreateTournamentComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

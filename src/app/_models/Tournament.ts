@@ -6,4 +6,11 @@ export class Tournament{
     name: string;
     cashprize: number;
     sponsor: string;
+
+  constructor(arena: Arena, name: string, cashprize: number, sponsor: string) {
+    this.arena = arena;
+    this.name = name;
+    this.cashprize = cashprize;
+    this.sponsor = sponsor;
+  }
 }

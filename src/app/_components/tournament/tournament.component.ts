@@ -3,8 +3,8 @@ import { Tournament } from '../../_models/Tournament';
 import { Arena } from '../../_models/Arena';
 
 @Component({
-  templateUrl: './tournaments.component.html',
-  styleUrls: ['./tournaments.component.scss']
+  templateUrl: './tournament.component.html',
+  styleUrls: ['./tournament.component.scss']
 })
 
 export class TournamentComponent {
