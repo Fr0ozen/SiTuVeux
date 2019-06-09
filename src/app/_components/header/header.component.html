@@ -15,11 +15,19 @@
   <div class="collapse navbar-collapse" [ngbCollapse]="navbarCollapsed">
     <ul class="navbar-nav ml-auto">
       <li ngbDropdown class="nav-item" #myDrop="ngbDropdown" *ngIf="currentUser && currentUser.isorganizer" on-mouseover="$event.stopPropagation(); myDrop.open();" on-mouseleave="$event.stopPropagation(); myDrop.close();">
+<<<<<<< HEAD
         <a class="nav-item nav-link" id="dropdownBasic1" ngbDropdownToggle>
           <i class="fa fa-plus-circle"></i>
           Créer
         </a>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+=======
+        <a class="nav-item nav-link cursor" id="dropdownBasic1" ngbDropdownToggle>
+          <i class="fa fa-plus-circle"></i>
+          Créer
+        </a>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdownmenu">
+>>>>>>> ae07bf8a53530068c4628c063e1d572432abf496
           <a class="nav-item nav-link text-dark" routerLink="/createPlayer" ngbDropdownItem>
             <i class="fa fa-gamepad"></i>
             Joueur
@@ -28,7 +36,15 @@
             <i class="fa fa-users"></i>
             Equipe
           </a>
+<<<<<<< HEAD
           <a class="nav-item nav-link text-dark" routerLink="/login" ngbDropdownItem>
+=======
+          <a class="nav-item nav-link text-dark" routerLink="/createArena" ngbDropdownItem>
+            <i class="fa fa-fort-awesome"></i>
+            Arène
+          </a>
+          <a class="nav-item nav-link text-dark" routerLink="/createTournament" ngbDropdownItem>
+>>>>>>> ae07bf8a53530068c4628c063e1d572432abf496
             <i class="fa fa-trophy"></i>
             Tournoi
           </a>

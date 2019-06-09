@@ -24,7 +24,10 @@
         "ng-pick-datetime": "^7.0.0",
         "ngx-toastr": "^10.0.4",
         "popper": "^1.0.1",
+<<<<<<< HEAD
         "pusher-js": "^4.4.0",
+=======
+>>>>>>> ae07bf8a53530068c4628c063e1d572432abf496
         "rxjs": "~6.3.3",
         "tslib": "^1.9.0",
         "zone.js": "~0.8.26"

@@ -16,9 +16,15 @@ export class AuthGuard implements CanActivate {
             return true;
         }
 
+<<<<<<< HEAD
         if ((state.url === '/createPlayer' || state.url === '/createTeam') && currentUser && currentUser.isorganizer) {
           return true;
         } else if ((state.url === '/createPlayer' || state.url === '/createTeam') && currentUser && !currentUser.isorganizer) {
+=======
+        if ((state.url === '/createPlayer' || state.url === '/createTeam' || state.url === '/createArena') && currentUser && currentUser.isorganizer) {
+          return true;
+        } else if ((state.url === '/createPlayer' || state.url === '/createTeam' || state.url === '/createArena') && currentUser && !currentUser.isorganizer) {
+>>>>>>> ae07bf8a53530068c4628c063e1d572432abf496
           this.router.navigate(['/login']);
           return false;
         }

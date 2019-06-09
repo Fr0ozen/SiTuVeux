@@ -10,6 +10,10 @@ export class HomeComponent {
 
   test() {
     this.homeService.test().subscribe(data => {
+<<<<<<< HEAD
+=======
+      //console.log(data);
+>>>>>>> ae07bf8a53530068c4628c063e1d572432abf496
     });
   }
 }

@@ -26,7 +26,11 @@ import { CreateTeamComponent } from './_components/createTeam/createTeam.compone
 import { SpinnerComponent } from './_components/spinner/spinner.component';
 import { SpinnerInterceptor } from './_interceptors/spinner.interceptor';
 import { OWL_DATE_TIME_LOCALE, OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+<<<<<<< HEAD
 import { EncounterComponent } from './_components/encounter/encounter.component';
+=======
+import { CreateArenaComponent } from './_components/createArena/createArena.component';
+>>>>>>> ae07bf8a53530068c4628c063e1d572432abf496
 
 @NgModule({
   imports: [
@@ -52,7 +56,11 @@ import { EncounterComponent } from './_components/encounter/encounter.component'
     InputDropdownComponent,
     CreateTeamComponent,
     SpinnerComponent,
+<<<<<<< HEAD
     EncounterComponent
+=======
+    CreateArenaComponent
+>>>>>>> ae07bf8a53530068c4628c063e1d572432abf496
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
