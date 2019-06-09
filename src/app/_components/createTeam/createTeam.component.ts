@@ -15,7 +15,7 @@ import {Player} from '../../_models/Player';
 })
 
 export class CreateTeamComponent implements OnInit {
-  loginForm: FormGroup;
+  createTeamForm: FormGroup;
   dataList: any[];
   user: User;
   isDataLoaded: boolean;
@@ -32,7 +32,7 @@ export class CreateTeamComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
+    this.createTeamForm = this.formBuilder.group({
       name: ['', Validators.required],
       origin: ['', Validators.required],
       dt1: ['', Validators.required],
@@ -41,18 +41,17 @@ export class CreateTeamComponent implements OnInit {
       dt4: ['', Validators.required],
       dt5: ['', Validators.required]
     });
-    this.user = this.loginService.currentUserValue;
   }
 
   // convenience getter for easy access to form fields
-  get f() { return this.loginForm.controls; }
+  get f() { return this.createTeamForm.controls; }
 
   onSubmit() {
     this.error = '';
     this.submitted = true;
 
     // stop here if form is invalid
-    if (!this.loginForm.invalid) {
+    if (!this.createTeamForm.invalid) {
       let playerList = new Array<Player>();
       playerList.push(this.createPlayerFromData(this.f.capitainePseudonyme.value, this.f.dt1.value, true));
       playerList.push(this.createPlayerFromData(this.f.joueur1Pseudonyme.value, this.f.dt2.value, false));

@@ -26,6 +26,7 @@ import { CreateTeamComponent } from './_components/createTeam/createTeam.compone
 import { SpinnerComponent } from './_components/spinner/spinner.component';
 import { SpinnerInterceptor } from './_interceptors/spinner.interceptor';
 import { OWL_DATE_TIME_LOCALE, OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { CreateArenaComponent } from './_components/createArena/createArena.component';
 
 @NgModule({
   imports: [
@@ -50,7 +51,8 @@ import { OWL_DATE_TIME_LOCALE, OwlDateTimeModule, OwlNativeDateTimeModule } from
     CreatePlayerComponent,
     InputDropdownComponent,
     CreateTeamComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    CreateArenaComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
