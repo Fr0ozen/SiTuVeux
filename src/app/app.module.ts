@@ -12,7 +12,7 @@ import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
 
 import { AppRoutingModule } from './app-routing.module';
-import { TournamentComponent } from './_components/tournaments/tournaments.component';
+import { TournamentComponent } from './_components/tournament/tournament.component';
 import { MatchComponent } from './_components/match/match.component';
 import { CreatePlayerComponent } from './_components/createPlayer/createPlayer.component';
 
@@ -30,6 +30,7 @@ import { CreateArenaComponent } from './_components/createArena/createArena.comp
 import { EncounterComponent } from './_components/encounter/encounter.component';
 import { ManageRoundsComponent } from './_components/manageRounds/manageRounds.component';
 
+import { CreateTournamentComponent } from './_components/createTournament/createTournament.component';
 
 @NgModule({
   imports: [
@@ -57,7 +58,8 @@ import { ManageRoundsComponent } from './_components/manageRounds/manageRounds.c
     SpinnerComponent,
     CreateArenaComponent,
     EncounterComponent,
-    ManageRoundsComponent
+    ManageRoundsComponentq
+    CreateTournamentComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
