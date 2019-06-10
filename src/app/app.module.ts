@@ -58,7 +58,7 @@ import { CreateTournamentComponent } from './_components/createTournament/create
     SpinnerComponent,
     CreateArenaComponent,
     EncounterComponent,
-    ManageRoundsComponentq
+    ManageRoundsComponent
     CreateTournamentComponent
   ],
   providers: [
