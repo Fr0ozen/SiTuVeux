@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../environment/environment';
 import { HttpClient } from '@angular/common/http';
+import { Round } from '../../_models/Round';
 
 declare const Pusher: any;
 
@@ -18,13 +19,13 @@ export class PusherService {
     this.channel = this.pusher.subscribe('events-channel');
   }
 
-  like( teamNumber, teamScore ) {
+  like( teamNumber, teamScore, rounds: Round[], idwinningteam) {
     if(teamNumber==0){
-      this.http.post('http://localhost:3000/update', {'teamNumber': 0, 'teamScore': teamScore})
+      this.http.post('http://localhost:3000/update', {'teamNumber': 0, 'rounds': rounds, 'teamScore': teamScore, 'idwinningteam': idwinningteam})
       .subscribe(data => {});
     }
     else{
-      this.http.post('http://localhost:3000/update', {'teamNumber': 1, 'teamScore': teamScore})
+      this.http.post('http://localhost:3000/update', {'teamNumber': 1, 'rounds': rounds, 'teamScore': teamScore, 'idwinningteam': idwinningteam})
       .subscribe(data => {});
     }
   }

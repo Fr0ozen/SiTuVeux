@@ -18,12 +18,7 @@ export class SpinnerInterceptor implements HttpInterceptor {
         this.onEnd();
       }
     }, (err: any) => {
-<<<<<<< HEAD
-        this.onEnd();
-=======
-      console.log(err);
       this.onEnd();
->>>>>>> ae07bf8a53530068c4628c063e1d572432abf496
     }));
   }
 

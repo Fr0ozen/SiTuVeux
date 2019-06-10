@@ -1,25 +1,4 @@
 export class Player {
-<<<<<<< HEAD
-    fname: string;
-    lname: string;
-    pseudo: string;
-    level: number;
-    origin: string;
-    sex: number;
-    joiningDate: Date;
-    isCapitain: boolean;
-
-    constructor(fname: string, lname: string, pseudo: string, level: number, origin: string, sex: number,  joiningDate?: Date, isCapitain?: boolean) {
-      this.fname = fname;
-      this.lname = lname;
-      this.pseudo = pseudo;
-      this.level = level;
-      this.origin = origin;
-      this.sex = sex;
-      this.joiningDate = joiningDate;
-      this.isCapitain = isCapitain;
-    }
-=======
   id: number;
   fname: string;
   lname: string;
@@ -40,5 +19,4 @@ export class Player {
     this.joiningDate = joiningDate;
     this.isCapitain = isCapitain;
   }
->>>>>>> ae07bf8a53530068c4628c063e1d572432abf496
 }
