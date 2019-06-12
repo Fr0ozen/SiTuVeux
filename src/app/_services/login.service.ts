@@ -1,11 +1,11 @@
-﻿import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+﻿import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
-import { User } from '../_models/user';
+import {User} from '../_models/user';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class LoginService {
     private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
@@ -20,7 +20,7 @@ export class LoginService {
     }
 
     login(username: string, password: string) {
-        return this.http.post<any>('http://localhost:3000/createToken', { username, password })
+        return this.http.post<any>('http://localhost:3000/createToken', {username, password})
             .pipe(map(data => {
                 const user: User = new User();
 

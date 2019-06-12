@@ -1,11 +1,12 @@
-﻿import { Injectable } from '@angular/core';
-import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+﻿import {Injectable} from '@angular/core';
+import {Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 
-import { LoginService } from '../_services/login.service';
+import {LoginService} from '../_services/login.service';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class AuthGuard implements CanActivate {
-    constructor(private router: Router, private loginService: LoginService) {}
+    constructor(private router: Router, private loginService: LoginService) {
+    }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const currentUser = this.loginService.currentUserValue;
@@ -17,10 +18,10 @@ export class AuthGuard implements CanActivate {
         }
 
         if ((state.url === '/createPlayer' || state.url === '/createTeam' || state.url === '/createArena' || state.url === '/createTournament') && currentUser && currentUser.isorganizer) {
-          return true;
+            return true;
         } else if ((state.url === '/createPlayer' || state.url === '/createTeam' || state.url === '/createArena' || state.url === '/createTournament') && currentUser && !currentUser.isorganizer) {
-          this.router.navigate(['/login']);
-          return false;
+            this.router.navigate(['/login']);
+            return false;
         }
 
         if (currentUser) {

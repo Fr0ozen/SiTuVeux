@@ -1,4 +1,4 @@
-import { Player } from './Player';
+import {Player} from './Player';
 
 export class Team {
     id: number;
@@ -7,8 +7,8 @@ export class Team {
     playerList: Player[];
 
     constructor(name: string, origin: string, playerList: Player[]) {
-      this.name = name;
-      this.origin = origin;
-      this.playerList = playerList;
+        this.name = name;
+        this.origin = origin;
+        this.playerList = playerList;
     }
 }

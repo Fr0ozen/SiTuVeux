@@ -1,22 +1,22 @@
 .combo-container {
-  z-index: 9;
-  background: white;
+    z-index: 9;
+    background: white;
 }
 
 .data-container {
-  background: white;
-  display: block;
-  position: relative;
-  border: 1px solid grey;
-  max-height: 130px;
-  overflow-y: scroll;
+    background: white;
+    display: block;
+    position: relative;
+    border: 1px solid grey;
+    max-height: 130px;
+    overflow-y: scroll;
 }
 
 .highlight {
-  background: grey;
+    background: grey;
 }
 
 .input-item {
-  cursor: pointer;
-  font-size: 20px;
+    cursor: pointer;
+    font-size: 20px;
 }

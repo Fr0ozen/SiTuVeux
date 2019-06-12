@@ -1,4 +1,4 @@
-export class Round{
+export class Round {
     idmatch: number;
     idteam: number;
     roundnumber: number;
@@ -7,7 +7,7 @@ export class Round{
     isct: boolean;
     iswinner: boolean;
 
-    constructor(idmatch: number, idteam: number, roundnumber: number, startingtime: Date, endingtime: Date, isct: boolean, iswinner: boolean ){
+    constructor(idmatch: number, idteam: number, roundnumber: number, startingtime: Date, endingtime: Date, isct: boolean, iswinner: boolean) {
         this.idmatch = idmatch;
         this.idteam = idteam;
         this.roundnumber = roundnumber;

@@ -1,32 +1,32 @@
-import { Injectable } from '@angular/core';
-import { environment } from '../environment/environment';
-import { HttpClient } from '@angular/common/http';
-import { Round } from '../../_models/Round';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Round} from '../../_models/Round';
+import {environment} from '../../../environments/environment';
 
 declare const Pusher: any;
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class PusherService {
-  pusher: any;
-  channel: any;
-  constructor(private http: HttpClient) {
-    this.pusher = new Pusher(environment.pusher.key, {
-      cluster: environment.pusher.cluster,
-      encrypted: true
-    });
-    this.channel = this.pusher.subscribe('events-channel');
-  }
+    pusher: any;
+    channel: any;
 
-  like( teamNumber, teamScore, rounds: Round[], idwinningteam) {
-    if(teamNumber==0){
-      this.http.post('http://localhost:3000/update', {'teamNumber': 0, 'rounds': rounds, 'teamScore': teamScore, 'idwinningteam': idwinningteam})
-      .subscribe(data => {});
+    constructor(private http: HttpClient) {
+        this.pusher = new Pusher(environment.pusher.key, {
+            cluster: environment.pusher.cluster,
+            encrypted: true
+        });
+        this.channel = this.pusher.subscribe('events-channel');
     }
-    else{
-      this.http.post('http://localhost:3000/update', {'teamNumber': 1, 'rounds': rounds, 'teamScore': teamScore, 'idwinningteam': idwinningteam})
-      .subscribe(data => {});
+
+    like(teamNumber, teamScore, rounds: Round[], idwinningteam) {
+        this.http.post('http://localhost:3000/update', {
+            'teamNumber': teamNumber,
+            'rounds': rounds,
+            'teamScore': teamScore,
+            'idwinningteam': idwinningteam
+        }).subscribe(data => {
+        });
     }
-  }
 }
