@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PusherService} from '../pusher/pusher.service';
+import {PusherService} from '../../_services/pusher.service';
 import {Round} from 'src/app/_models/Round';
 import {RoundService} from '../../_services/round.service';
 import {first} from 'rxjs/internal/operators/first';
@@ -28,6 +28,7 @@ export class MatchComponent implements OnInit {
     error = '';
     user: User;
     isOrg: boolean = false;
+    isAllRoundLoaded: boolean = false;
 
     constructor(private pusherService: PusherService, private getAllRoundService: RoundService, private toastr: ToastrService, private loginService: LoginService) {
     }
@@ -41,7 +42,7 @@ export class MatchComponent implements OnInit {
             for (let i = 0; i < data.teamScore[0].length; i++) {
                 if (data.teamScore[0][i].idteam === this.team1Id && data.teamScore[0][i].iswinner === true) {
                     this.team1Score++;
-                } else if (data.teamScore[0][i].idteam == this.team2Id && data.teamScore[0][i].iswinner === true) {
+                } else if (data.teamScore[0][i].idteam === this.team2Id && data.teamScore[0][i].iswinner === true) {
                     this.team2Score++;
                 }
             }
@@ -52,6 +53,7 @@ export class MatchComponent implements OnInit {
             });
 
             this.error = '';
+            this.isAllRoundLoaded = true;
         }, error => {
             this.error = error;
         });
@@ -70,20 +72,18 @@ export class MatchComponent implements OnInit {
         const round = new Round(this.idMatch, null, +this.team1Score + this.team2Score + 1, new Date(Date.now()), new Date(Date.now()), true, true);
         const reverseRound = new Round(this.idMatch, null, +this.team1Score + this.team2Score + 1, new Date(Date.now()), new Date(Date.now()), false, false);
 
-        if (team == 0) {
+        if (team === 0) {
             round.idteam = this.team1Id;
             reverseRound.idteam = this.team2Id;
 
             const rounds = [round, reverseRound];
-            this.team1Score++;
-            this.pusherService.like(0, this.team1Score, rounds, this.team1Id);
+            this.pusherService.like(this.user, 0, this.team1Score + 1, rounds, this.team1Id);
         } else {
             round.idteam = this.team2Id;
             reverseRound.idteam = this.team1Id;
 
             const rounds = [round, reverseRound];
-            this.team2Score++;
-            this.pusherService.like(1, this.team2Score, rounds, this.team2Id);
+            this.pusherService.like(this.user, 1, this.team2Score + 1, rounds, this.team2Id);
         }
     }
 
