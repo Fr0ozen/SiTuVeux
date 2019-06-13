@@ -22,6 +22,6 @@ export class PusherService {
     }
 
     like(user: User, teamNumber, teamScore, rounds: Round[], idwinningteam) {
-        this.http.post('http://localhost:3000/update', {user, teamNumber, rounds, teamScore, idwinningteam}).subscribe();
+        this.http.post('http://localhost:3000/addRound', {user, teamNumber, rounds, teamScore, idwinningteam}).subscribe();
     }
 }

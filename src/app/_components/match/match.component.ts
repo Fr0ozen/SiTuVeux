@@ -1,11 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {PusherService} from '../../_services/pusher.service';
-import {Round} from 'src/app/_models/Round';
-import {RoundService} from '../../_services/round.service';
-import {first} from 'rxjs/internal/operators/first';
-import {ToastrService} from 'ngx-toastr';
-import {LoginService} from '../../_services/login.service';
-import {User} from '../../_models/User';
+import { Component, Input, OnInit } from '@angular/core';
+import { PusherService } from '../../_services/pusher.service';
+import { Round } from 'src/app/_models/Round';
+import { RoundService } from '../../_services/round.service';
+import { first } from 'rxjs/internal/operators/first';
+import { ToastrService } from 'ngx-toastr';
+import { LoginService } from '../../_services/login.service';
+import { User } from '../../_models/User';
 
 @Component({
     selector: 'app-match',
@@ -17,14 +17,10 @@ export class MatchComponent implements OnInit {
     @Input()
     idMatch: number;
 
-    @Input()
     team1Id: number;
-
-    @Input()
     team2Id: number;
-
-    team1Score: number;
-    team2Score: number;
+    team1Score: number = 0;
+    team2Score: number = 0;
     error = '';
     user: User;
     isOrg: boolean = false;
@@ -37,15 +33,13 @@ export class MatchComponent implements OnInit {
         this.user = this.loginService.currentUserValue;
 
         this.getAllRoundService.getAllRoundsMatch(this.user, this.idMatch).pipe(first()).subscribe(data => {
-            this.team1Score = 0;
-            this.team2Score = 0;
-            for (let i = 0; i < data.teamScore[0].length; i++) {
-                if (data.teamScore[0][i].idteam === this.team1Id && data.teamScore[0][i].iswinner === true) {
-                    this.team1Score++;
-                } else if (data.teamScore[0][i].idteam === this.team2Id && data.teamScore[0][i].iswinner === true) {
-                    this.team2Score++;
-                }
-            }
+            console.log(data.teamScore[0]);
+
+            this.team1Id = data.teamScore[0][0].idteam;
+            this.team1Score = data.teamScore[0][0].scoreTeam;
+
+            this.team2Id = data.teamScore[0][1].idteam;
+            this.team2Score = data.teamScore[0][1].scoreTeam;
 
             this.toastr.success(data.message, 'Succès', {
                 timeOut: 3000,
