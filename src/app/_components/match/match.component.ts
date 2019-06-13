@@ -69,7 +69,7 @@ export class MatchComponent implements OnInit {
     }
 
     gotRound(team: number) {
-        const round = new Round(this.idMatch, null, +this.team1Score + this.team2Score + 1, new Date(Date.now()), new Date(Date.now()), true, true);
+        /*const round = new Round(this.idMatch, null, +this.team1Score + this.team2Score + 1, new Date(Date.now()), new Date(Date.now()), true, true);
         const reverseRound = new Round(this.idMatch, null, +this.team1Score + this.team2Score + 1, new Date(Date.now()), new Date(Date.now()), false, false);
 
         if (team === 0) {
@@ -84,7 +84,7 @@ export class MatchComponent implements OnInit {
 
             const rounds = [round, reverseRound];
             this.pusherService.like(this.user, 1, this.team2Score + 1, rounds, this.team2Id);
-        }
+        }*/
     }
 
     isOrga() {

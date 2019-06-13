@@ -1,15 +1,18 @@
+import {Team} from './Team';
+import {Match} from './Match';
+
 export class Round {
-    idmatch: number;
-    idteam: number;
+    match: Match;
+    team: Team;
     roundnumber: number;
     startingtime: Date;
     endingtime: Date;
     isct: boolean;
     iswinner: boolean;
 
-    constructor(idmatch: number, idteam: number, roundnumber: number, startingtime: Date, endingtime: Date, isct: boolean, iswinner: boolean) {
-        this.idmatch = idmatch;
-        this.idteam = idteam;
+    constructor(match: Match, team: Team, roundnumber: number, startingtime: Date, endingtime: Date, isct: boolean, iswinner: boolean) {
+        this.match = match;
+        this.team = team;
         this.roundnumber = roundnumber;
         this.startingtime = startingtime;
         this.endingtime = endingtime;

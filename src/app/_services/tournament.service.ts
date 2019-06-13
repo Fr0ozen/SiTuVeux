@@ -9,7 +9,7 @@ export class TournamentService {
     constructor(private http: HttpClient) {
     }
 
-    createTournament(user: User, tournament: Tournament, teamList: Array<Team>) {
-        return this.http.post<any>('http://localhost:3000/createTournament', {user, tournament, teamList});
+    createTournament(user: User, tournament: Tournament, matchList: Array<any>) {
+        return this.http.post<any>('http://localhost:3000/createTournament', {user, tournament, matchList});
     }
 }

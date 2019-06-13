@@ -1,4 +1,4 @@
-<div class="container mt-5" *ngIf="isArenaDataLoaded && isTeamDataLoaded">
+<div class="container mt-5" *ngIf="isArenaDataLoaded && isTeamDataLoaded && isUserDataLoaded">
     <h1 class="display-1">Création d'un tournoi</h1>
     <form class="mt-3" [formGroup]="createTournamentForm" (ngSubmit)="onSubmit()">
         <div class="form-row">
@@ -31,7 +31,7 @@
         <br>
         <br>
         <h1 class="display-1">1/8 de finale</h1>
-        <label>1er Match</label>
+        <label><b>1er Match</b></label>
         <div class="form-row">
             <div class="form-group">
                 <app-input-drop-down [dataList]="teamList" [columnName]="'name'" [placeholder]="'Entrer une équipe'"
@@ -47,7 +47,37 @@
                                      [errorText]="'équipe'"></app-input-drop-down>
             </div>
         </div>
-        <label>2ème Match</label>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Heure de début</label>
+                <input [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" class="form-control" formControlName="dt1"
+                       aria-describedby="dt1Help" placeholder="Entrer une heure de début"
+                       [ngClass]="{ 'is-invalid': submitted && f.dt1.errors }">
+                <div *ngIf="submitted && f.dt1.errors" class="invalid-feedback">
+                    <div *ngIf="f.dt1.errors.required">L'heure de début est nécessaire</div>
+                </div>
+                <owl-date-time #dt1></owl-date-time>
+            </div>
+            <div class="form-group ml-5">
+                <label>Carte</label>
+                <input type="text" class="form-control" formControlName="map1" aria-describedby="mapHelp"
+                       placeholder="Entrer un nom de carte" [ngClass]="{ 'is-invalid': submitted && f.map1.errors }">
+                <div *ngIf="submitted && f.map1.errors" class="invalid-feedback">
+                    <div *ngIf="f.map1.errors.required">Le nom de la carte est nécessaire</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Référent</label>
+                <app-input-drop-down [dataList]="userList" [columnName]="'username'" [placeholder]="'Entrer un référent'"
+                                     [inputDropDownFormGroup]="createTournamentForm"
+                                     [inputDropDownFormControlName]="'referee1'" [isSubmitted]="submitted"
+                                     [errorText]="'référent'"></app-input-drop-down>
+            </div>
+        </div>
+        <br>
+        <label><b>2ème Match</b></label>
         <div class="form-row">
             <div class="form-group">
                 <app-input-drop-down [dataList]="teamList" [columnName]="'name'" [placeholder]="'Entrer une équipe'"
@@ -63,7 +93,37 @@
                                      [errorText]="'équipe'"></app-input-drop-down>
             </div>
         </div>
-        <label>3ème Match</label>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Heure de début</label>
+                <input [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" class="form-control" formControlName="dt2"
+                       aria-describedby="dt2Help" placeholder="Entrer une heure de début"
+                       [ngClass]="{ 'is-invalid': submitted && f.dt2.errors }">
+                <div *ngIf="submitted && f.dt2.errors" class="invalid-feedback">
+                    <div *ngIf="f.dt2.errors.required">L'heure de début est nécessaire</div>
+                </div>
+                <owl-date-time #dt2></owl-date-time>
+            </div>
+            <div class="form-group ml-5">
+                <label>Carte</label>
+                <input type="text" class="form-control" formControlName="map2" aria-describedby="mapHelp"
+                       placeholder="Entrer un nom de carte" [ngClass]="{ 'is-invalid': submitted && f.map2.errors }">
+                <div *ngIf="submitted && f.map2.errors" class="invalid-feedback">
+                    <div *ngIf="f.map2.errors.required">Le nom de la carte est nécessaire</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Référent</label>
+                <app-input-drop-down [dataList]="userList" [columnName]="'username'" [placeholder]="'Entrer un référent'"
+                                     [inputDropDownFormGroup]="createTournamentForm"
+                                     [inputDropDownFormControlName]="'referee2'" [isSubmitted]="submitted"
+                                     [errorText]="'référent'"></app-input-drop-down>
+            </div>
+        </div>
+        <br>
+        <label><b>3ème Match</b></label>
         <div class="form-row">
             <div class="form-group">
                 <app-input-drop-down [dataList]="teamList" [columnName]="'name'" [placeholder]="'Entrer une équipe'"
@@ -79,7 +139,37 @@
                                      [errorText]="'équipe'"></app-input-drop-down>
             </div>
         </div>
-        <label>4ème Match</label>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Heure de début</label>
+                <input [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" class="form-control" formControlName="dt3"
+                       aria-describedby="dt3Help" placeholder="Entrer une heure de début"
+                       [ngClass]="{ 'is-invalid': submitted && f.dt3.errors }">
+                <div *ngIf="submitted && f.dt3.errors" class="invalid-feedback">
+                    <div *ngIf="f.dt3.errors.required">L'heure de début est nécessaire</div>
+                </div>
+                <owl-date-time #dt3></owl-date-time>
+            </div>
+            <div class="form-group ml-5">
+                <label>Carte</label>
+                <input type="text" class="form-control" formControlName="map3" aria-describedby="mapHelp"
+                       placeholder="Entrer un nom de carte" [ngClass]="{ 'is-invalid': submitted && f.map3.errors }">
+                <div *ngIf="submitted && f.map3.errors" class="invalid-feedback">
+                    <div *ngIf="f.map3.errors.required">Le nom de la carte est nécessaire</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Référent</label>
+                <app-input-drop-down [dataList]="userList" [columnName]="'username'" [placeholder]="'Entrer un référent'"
+                                     [inputDropDownFormGroup]="createTournamentForm"
+                                     [inputDropDownFormControlName]="'referee3'" [isSubmitted]="submitted"
+                                     [errorText]="'référent'"></app-input-drop-down>
+            </div>
+        </div>
+        <br>
+        <label><b>4ème Match</b></label>
         <div class="form-row">
             <div class="form-group">
                 <app-input-drop-down [dataList]="teamList" [columnName]="'name'" [placeholder]="'Entrer une équipe'"
@@ -95,7 +185,37 @@
                                      [errorText]="'équipe'"></app-input-drop-down>
             </div>
         </div>
-        <label>5ème Match</label>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Heure de début</label>
+                <input [owlDateTimeTrigger]="dt4" [owlDateTime]="dt4" class="form-control" formControlName="dt4"
+                       aria-describedby="dt4Help" placeholder="Entrer une heure de début"
+                       [ngClass]="{ 'is-invalid': submitted && f.dt4.errors }">
+                <div *ngIf="submitted && f.dt4.errors" class="invalid-feedback">
+                    <div *ngIf="f.dt4.errors.required">L'heure de début est nécessaire</div>
+                </div>
+                <owl-date-time #dt4></owl-date-time>
+            </div>
+            <div class="form-group ml-5">
+                <label>Carte</label>
+                <input type="text" class="form-control" formControlName="map4" aria-describedby="mapHelp"
+                       placeholder="Entrer un nom de carte" [ngClass]="{ 'is-invalid': submitted && f.map4.errors }">
+                <div *ngIf="submitted && f.map4.errors" class="invalid-feedback">
+                    <div *ngIf="f.map4.errors.required">Le nom de la carte est nécessaire</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Référent</label>
+                <app-input-drop-down [dataList]="userList" [columnName]="'username'" [placeholder]="'Entrer un référent'"
+                                     [inputDropDownFormGroup]="createTournamentForm"
+                                     [inputDropDownFormControlName]="'referee4'" [isSubmitted]="submitted"
+                                     [errorText]="'référent'"></app-input-drop-down>
+            </div>
+        </div>
+        <br>
+        <label><b>5ème Match</b></label>
         <div class="form-row">
             <div class="form-group">
                 <app-input-drop-down [dataList]="teamList" [columnName]="'name'" [placeholder]="'Entrer une équipe'"
@@ -111,7 +231,37 @@
                                      [errorText]="'équipe'"></app-input-drop-down>
             </div>
         </div>
-        <label>6ème Match</label>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Heure de début</label>
+                <input [owlDateTimeTrigger]="dt5" [owlDateTime]="dt5" class="form-control" formControlName="dt5"
+                       aria-describedby="dt5Help" placeholder="Entrer une heure de début"
+                       [ngClass]="{ 'is-invalid': submitted && f.dt5.errors }">
+                <div *ngIf="submitted && f.dt5.errors" class="invalid-feedback">
+                    <div *ngIf="f.dt5.errors.required">L'heure de début est nécessaire</div>
+                </div>
+                <owl-date-time #dt5></owl-date-time>
+            </div>
+            <div class="form-group ml-5">
+                <label>Carte</label>
+                <input type="text" class="form-control" formControlName="map5" aria-describedby="mapHelp"
+                       placeholder="Entrer un nom de carte" [ngClass]="{ 'is-invalid': submitted && f.map5.errors }">
+                <div *ngIf="submitted && f.map5.errors" class="invalid-feedback">
+                    <div *ngIf="f.map5.errors.required">Le nom de la carte est nécessaire</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Référent</label>
+                <app-input-drop-down [dataList]="userList" [columnName]="'username'" [placeholder]="'Entrer un référent'"
+                                     [inputDropDownFormGroup]="createTournamentForm"
+                                     [inputDropDownFormControlName]="'referee5'" [isSubmitted]="submitted"
+                                     [errorText]="'référent'"></app-input-drop-down>
+            </div>
+        </div>
+        <br>
+        <label><b>6ème Match</b></label>
         <div class="form-row">
             <div class="form-group">
                 <app-input-drop-down [dataList]="teamList" [columnName]="'name'" [placeholder]="'Entrer une équipe'"
@@ -127,7 +277,37 @@
                                      [errorText]="'équipe'"></app-input-drop-down>
             </div>
         </div>
-        <label>7ème Match</label>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Heure de début</label>
+                <input [owlDateTimeTrigger]="dt6" [owlDateTime]="dt6" class="form-control" formControlName="dt6"
+                       aria-describedby="dt6Help" placeholder="Entrer une heure de début"
+                       [ngClass]="{ 'is-invalid': submitted && f.dt5.errors }">
+                <div *ngIf="submitted && f.dt6.errors" class="invalid-feedback">
+                    <div *ngIf="f.dt6.errors.required">L'heure de début est nécessaire</div>
+                </div>
+                <owl-date-time #dt6></owl-date-time>
+            </div>
+            <div class="form-group ml-5">
+                <label>Carte</label>
+                <input type="text" class="form-control" formControlName="map6" aria-describedby="mapHelp"
+                       placeholder="Entrer un nom de carte" [ngClass]="{ 'is-invalid': submitted && f.map6.errors }">
+                <div *ngIf="submitted && f.map6.errors" class="invalid-feedback">
+                    <div *ngIf="f.map6.errors.required">Le nom de la carte est nécessaire</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Référent</label>
+                <app-input-drop-down [dataList]="userList" [columnName]="'username'" [placeholder]="'Entrer un référent'"
+                                     [inputDropDownFormGroup]="createTournamentForm"
+                                     [inputDropDownFormControlName]="'referee6'" [isSubmitted]="submitted"
+                                     [errorText]="'référent'"></app-input-drop-down>
+            </div>
+        </div>
+        <br>
+        <label><b>7ème Match</b></label>
         <div class="form-row">
             <div class="form-group">
                 <app-input-drop-down [dataList]="teamList" [columnName]="'name'" [placeholder]="'Entrer une équipe'"
@@ -143,7 +323,37 @@
                                      [errorText]="'équipe'"></app-input-drop-down>
             </div>
         </div>
-        <label>8ème Match</label>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Heure de début</label>
+                <input [owlDateTimeTrigger]="dt7" [owlDateTime]="dt7" class="form-control" formControlName="dt7"
+                       aria-describedby="dt7Help" placeholder="Entrer une heure de début"
+                       [ngClass]="{ 'is-invalid': submitted && f.dt7.errors }">
+                <div *ngIf="submitted && f.dt7.errors" class="invalid-feedback">
+                    <div *ngIf="f.dt7.errors.required">L'heure de début est nécessaire</div>
+                </div>
+                <owl-date-time #dt7></owl-date-time>
+            </div>
+            <div class="form-group ml-5">
+                <label>Carte</label>
+                <input type="text" class="form-control" formControlName="map7" aria-describedby="mapHelp"
+                       placeholder="Entrer un nom de carte" [ngClass]="{ 'is-invalid': submitted && f.map7.errors }">
+                <div *ngIf="submitted && f.map7.errors" class="invalid-feedback">
+                    <div *ngIf="f.map7.errors.required">Le nom de la carte est nécessaire</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Référent</label>
+                <app-input-drop-down [dataList]="userList" [columnName]="'username'" [placeholder]="'Entrer un référent'"
+                                     [inputDropDownFormGroup]="createTournamentForm"
+                                     [inputDropDownFormControlName]="'referee7'" [isSubmitted]="submitted"
+                                     [errorText]="'référent'"></app-input-drop-down>
+            </div>
+        </div>
+        <br>
+        <label><b>8ème Match</b></label>
         <div class="form-row">
             <div class="form-group">
                 <app-input-drop-down [dataList]="teamList" [columnName]="'name'" [placeholder]="'Entrer une équipe'"
@@ -157,6 +367,35 @@
                                      [inputDropDownFormGroup]="createTournamentForm"
                                      [inputDropDownFormControlName]="'match8_2'" [isSubmitted]="submitted"
                                      [errorText]="'équipe'"></app-input-drop-down>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Heure de début</label>
+                <input [owlDateTimeTrigger]="dt8" [owlDateTime]="dt8" class="form-control" formControlName="dt8"
+                       aria-describedby="dt8Help" placeholder="Entrer une heure de début"
+                       [ngClass]="{ 'is-invalid': submitted && f.dt8.errors }">
+                <div *ngIf="submitted && f.dt8.errors" class="invalid-feedback">
+                    <div *ngIf="f.dt8.errors.required">L'heure de début est nécessaire</div>
+                </div>
+                <owl-date-time #dt8></owl-date-time>
+            </div>
+            <div class="form-group ml-5">
+                <label>Carte</label>
+                <input type="text" class="form-control" formControlName="map8" aria-describedby="mapHelp"
+                       placeholder="Entrer un nom de carte" [ngClass]="{ 'is-invalid': submitted && f.map8.errors }">
+                <div *ngIf="submitted && f.map8.errors" class="invalid-feedback">
+                    <div *ngIf="f.map8.errors.required">Le nom de la carte est nécessaire</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Référent</label>
+                <app-input-drop-down [dataList]="userList" [columnName]="'username'" [placeholder]="'Entrer un référent'"
+                                     [inputDropDownFormGroup]="createTournamentForm"
+                                     [inputDropDownFormControlName]="'referee8'" [isSubmitted]="submitted"
+                                     [errorText]="'référent'"></app-input-drop-down>
             </div>
         </div>
         <div class="form-group mt-3">
