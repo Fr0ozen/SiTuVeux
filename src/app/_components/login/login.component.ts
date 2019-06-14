@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
         if (!this.loginForm.invalid) {
             this.loginService.login(this.f.username.value, this.f.password.value).pipe(first()).subscribe(
                 data => {
-                    this.router.navigate(['/home']);
+                    this.router.navigate(['/tournaments']);
                 },
                 error => {
                     this.error = error;

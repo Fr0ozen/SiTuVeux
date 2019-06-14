@@ -5,7 +5,6 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {HeaderComponent} from './_components/header/header.component';
-import {HomeComponent} from './_components/home/home.component';
 import {LoginComponent} from './_components/login/login.component';
 
 import {JwtInterceptor} from './_interceptors/jwt.interceptor';
@@ -47,7 +46,6 @@ import {ManageMatchComponent} from './_components/manageMatch/manageMatch.compon
     ],
     declarations: [
         HeaderComponent,
-        HomeComponent,
         LoginComponent,
         TournamentComponent,
         MatchComponent,

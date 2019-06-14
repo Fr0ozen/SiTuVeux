@@ -12,4 +12,12 @@ export class TournamentService {
     createTournament(user: User, tournament: Tournament, matchList: Array<any>) {
         return this.http.post<any>('http://localhost:3000/createTournament', {user, tournament, matchList});
     }
+
+    getBracketByTournament(tournament: Tournament) {
+        return this.http.post<any>('http://localhost:3000/getBracketByTournament', {tournament});
+    }
+
+    getAllTournament() {
+        return this.http.get<any>('http://localhost:3000/getAllTournament');
+    }
 }

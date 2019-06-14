@@ -11,13 +11,13 @@ export class AuthGuard implements CanActivate {
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const currentUser = this.loginService.currentUserValue;
         if (state.url === '/login' && currentUser) {
-            this.router.navigate(['/home']);
+            this.router.navigate(['/tournaments']);
             return false;
         } else if (state.url === '/login') {
             return true;
         }
 
-        if ((state.url === '/createPlayer' || state.url === '/createTeam' || state.url === '/createArena' || state.url === '/createTournament') && currentUser && currentUser.isorganizer) {
+        if ((state.url === '/createPlayer' || state.url === '/createTeam' || state.url === '/createArena' || state.url === '/createTournament' || state.url === '/manageMatch') && currentUser && currentUser.isorganizer) {
             return true;
         } else if ((state.url === '/createPlayer' || state.url === '/createTeam' || state.url === '/createArena' || state.url === '/createTournament') && currentUser && !currentUser.isorganizer) {
             this.router.navigate(['/login']);

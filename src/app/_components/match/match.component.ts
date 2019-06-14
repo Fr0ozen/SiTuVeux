@@ -63,6 +63,7 @@ export class MatchComponent implements OnInit {
     }
 
     gotRound(team: number) {
+        //faire une fonction getMatchById
         /*const round = new Round(this.idMatch, null, +this.team1Score + this.team2Score + 1, new Date(Date.now()), new Date(Date.now()), true, true);
         const reverseRound = new Round(this.idMatch, null, +this.team1Score + this.team2Score + 1, new Date(Date.now()), new Date(Date.now()), false, false);
 
