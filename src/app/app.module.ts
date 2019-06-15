@@ -30,6 +30,12 @@ import {CreateArenaComponent} from './_components/createArena/createArena.compon
 import {CreateTournamentComponent} from './_components/createTournament/createTournament.component';
 import {ManageMatchComponent} from './_components/manageMatch/manageMatch.component';
 
+import {AgGridModule} from 'ag-grid-angular';
+import {DateRendererComponent} from './_components/dateRenderer/dateRenderer.component';
+import {SponsorRendererComponent} from './_components/sponsorRenderer/sponsorRenderer.component';
+import {CashprizeRendererComponent} from './_components/cashprizeRenderer/cashprizeRenderer.component';
+import {BracketComponent} from './_components/bracket/bracket.component';
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -42,7 +48,12 @@ import {ManageMatchComponent} from './_components/manageMatch/manageMatch.compon
         BrowserAnimationsModule,
         ToastrModule.forRoot(),
         OwlDateTimeModule,
-        OwlNativeDateTimeModule
+        OwlNativeDateTimeModule,
+        AgGridModule.withComponents([
+            DateRendererComponent,
+            SponsorRendererComponent,
+            CashprizeRendererComponent
+        ])
     ],
     declarations: [
         HeaderComponent,
@@ -56,7 +67,11 @@ import {ManageMatchComponent} from './_components/manageMatch/manageMatch.compon
         CreateArenaComponent,
         MatchComponent,
         CreateTournamentComponent,
-        ManageMatchComponent
+        ManageMatchComponent,
+        DateRendererComponent,
+        SponsorRendererComponent,
+        CashprizeRendererComponent,
+        BracketComponent
     ],
     providers: [
         {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

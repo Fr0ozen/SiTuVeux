@@ -13,11 +13,11 @@ export class TournamentService {
         return this.http.post<any>('http://localhost:3000/createTournament', {user, tournament, matchList});
     }
 
-    getBracketByTournament(tournament: Tournament) {
-        return this.http.post<any>('http://localhost:3000/getBracketByTournament', {tournament});
+    getBracketByTournament(id: number) {
+        return this.http.post<any>('http://localhost:3000/getBracketByTournamentId', {id});
     }
 
-    getAllTournament() {
-        return this.http.get<any>('http://localhost:3000/getAllTournament');
+    getAllTournamentForGrid() {
+        return this.http.get<any>('http://localhost:3000/getAllTournamentForGrid');
     }
 }

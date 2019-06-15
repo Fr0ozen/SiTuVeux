@@ -1,6 +1,20 @@
-<div style="text-align:center">
-    PAGE DES TOURNOIS
-    <div id="bracketTest"></div>
+<div class="container mt-5">
+    <br><br><br>
+    <h1 class="display-3 text-white">Match en cours</h1>
+    <ag-grid-angular class="ag-theme-balham"
+                     (gridReady)="onMatchGridReady($event)"
+                     (rowClicked)="onMatchRowClicked($event)"
+                     [gridOptions]="matchGridOptions"
+    >
+    </ag-grid-angular>
+    <br><br><br>
+    <h1 class="display-3 text-white">Tournoi</h1>
+    <ag-grid-angular class="ag-theme-balham"
+                     (gridReady)="onTournamentGridReady($event)"
+                     (rowClicked)="onTournamentRowClicked($event)"
+                     [gridOptions]="tournamentGridOptions"
+    >
+    </ag-grid-angular>
 </div>
 <!--
 <div class="container">

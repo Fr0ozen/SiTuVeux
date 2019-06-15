@@ -13,6 +13,8 @@ import {Team} from '../../_models/Team';
 import {Match} from '../../_models/Match';
 import {UserService} from '../../_services/user.service';
 
+import * as moment from 'moment';
+
 @Component({
     templateUrl: './createTournament.component.html',
     styleUrls: ['./createTournament.component.scss']
@@ -29,9 +31,13 @@ export class CreateTournamentComponent implements OnInit {
     isUserDataLoaded: boolean = false;
     submitted = false;
     error = '';
+    min: Date;
 
     constructor(private arenaService: ArenaService, private teamService: TeamService, private tournamentService: TournamentService, private loginService: LoginService, private userService: UserService, private formBuilder: FormBuilder, private toastr: ToastrService) {
         this.user = loginService.currentUserValue;
+
+        moment.locale('fr');
+        this.min = moment(new Date()).add(1,'days').toDate();
 
         arenaService.getAllArena(this.user).pipe(first()).subscribe(data => {
             this.arenaList = data.arenas;

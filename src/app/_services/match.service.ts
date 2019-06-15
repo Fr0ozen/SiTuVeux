@@ -10,4 +10,8 @@ export class MatchService {
     getLiveMatches(user: User) {
         return this.http.post<any>('http://localhost:3000/getLiveMatches', {user});
     }
+
+    getAllMatchStartedForGrid() {
+        return this.http.get<any>('http://localhost:3000/getAllMatchStartedForGrid');
+    }
 }
