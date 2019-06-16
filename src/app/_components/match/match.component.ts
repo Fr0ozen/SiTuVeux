@@ -28,6 +28,7 @@ export class MatchComponent implements OnInit {
     team2Score: number = 0;
     currentRound: number;
     dataLoaded: boolean = false;
+    matchLoaded: boolean = false;
     isReferee: boolean = false;
     user: User;
     match: Match;
@@ -72,9 +73,11 @@ export class MatchComponent implements OnInit {
             }
         });
 
-        this.userService.isReferee(this.user, this.matchId).pipe(first()).subscribe(data => {
-            this.isReferee = data[0].isReferee;
-        });
+        if (this.user !== null) {
+            this.userService.isReferee(this.user, this.matchId).pipe(first()).subscribe(data => {
+                this.isReferee = data[0].isReferee;
+            });
+        }
 
         this.updateMatch();
 
@@ -92,6 +95,7 @@ export class MatchComponent implements OnInit {
     updateMatch() {
         this.matchService.getMatchById(this.matchId).pipe(first()).subscribe(data => {
             this.match = data.match[0];
+            this.matchLoaded = true;
         });
     }
 

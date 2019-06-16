@@ -34,6 +34,7 @@ import {DateRendererComponent} from './_components/dateRenderer/dateRenderer.com
 import {SponsorRendererComponent} from './_components/sponsorRenderer/sponsorRenderer.component';
 import {CashprizeRendererComponent} from './_components/cashprizeRenderer/cashprizeRenderer.component';
 import {BracketComponent} from './_components/bracket/bracket.component';
+import {MatchRefereeComponent} from './_components/matchReferee/matchReferee.component';
 
 @NgModule({
     imports: [
@@ -69,7 +70,8 @@ import {BracketComponent} from './_components/bracket/bracket.component';
         DateRendererComponent,
         SponsorRendererComponent,
         CashprizeRendererComponent,
-        BracketComponent
+        BracketComponent,
+        MatchRefereeComponent
     ],
     providers: [
         {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
