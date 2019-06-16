@@ -23,7 +23,8 @@ export class CreateTeamComponent implements OnInit {
     submitted = false;
     error = '';
 
-    constructor(private playerService: PlayerService, private teamService: TeamService, private loginService: LoginService, private formBuilder: FormBuilder, private toastr: ToastrService) {
+    constructor(private playerService: PlayerService, private teamService: TeamService, private loginService: LoginService,
+                private formBuilder: FormBuilder, private toastr: ToastrService) {
         this.user = loginService.currentUserValue;
 
         playerService.getAllPlayer(this.user).pipe(first()).subscribe(data => {

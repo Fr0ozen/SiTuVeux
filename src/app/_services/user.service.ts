@@ -10,4 +10,8 @@ export class UserService {
     getAllUser(user: User) {
         return this.http.post<any>('http://localhost:3000/getAllUser', {user});
     }
+
+    isReferee(user: User, idmatch: number) {
+        return this.http.post<any>('http://localhost:3000/isReferee', {user, idmatch});
+    }
 }

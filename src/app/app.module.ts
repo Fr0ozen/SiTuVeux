@@ -28,7 +28,6 @@ import {OWL_DATE_TIME_LOCALE, OwlDateTimeModule, OwlNativeDateTimeModule} from '
 import {CreateArenaComponent} from './_components/createArena/createArena.component';
 
 import {CreateTournamentComponent} from './_components/createTournament/createTournament.component';
-import {ManageMatchComponent} from './_components/manageMatch/manageMatch.component';
 
 import {AgGridModule} from 'ag-grid-angular';
 import {DateRendererComponent} from './_components/dateRenderer/dateRenderer.component';
@@ -67,7 +66,6 @@ import {BracketComponent} from './_components/bracket/bracket.component';
         CreateArenaComponent,
         MatchComponent,
         CreateTournamentComponent,
-        ManageMatchComponent,
         DateRendererComponent,
         SponsorRendererComponent,
         CashprizeRendererComponent,

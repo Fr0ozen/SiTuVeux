@@ -8,16 +8,16 @@ import {CreatePlayerComponent} from './_components/createPlayer/createPlayer.com
 import {CreateTeamComponent} from './_components/createTeam/createTeam.component';
 import {CreateArenaComponent} from './_components/createArena/createArena.component';
 import {CreateTournamentComponent} from './_components/createTournament/createTournament.component';
-import {ManageMatchComponent} from './_components/manageMatch/manageMatch.component';
 import {BracketComponent} from './_components/bracket/bracket.component';
+import {MatchComponent} from './_components/match/match.component';
 
 const routes: Routes = [
     {path: 'login', component: LoginComponent, canActivate: [AuthGuard]},
     {path: 'createPlayer', component: CreatePlayerComponent, canActivate: [AuthGuard]},
     {path: 'createTeam', component: CreateTeamComponent, canActivate: [AuthGuard]},
     {path: 'createArena', component: CreateArenaComponent, canActivate: [AuthGuard]},
-    {path: 'manageMatch', component: ManageMatchComponent, canActivate: [AuthGuard]},
     {path: 'createTournament', component: CreateTournamentComponent, canActivate: [AuthGuard]},
+    {path: 'match', component: MatchComponent},
     {path: 'tournaments', component: TournamentComponent},
     {path: 'bracket', component: BracketComponent},
     {path: '**', redirectTo: '/tournaments', pathMatch: 'full'}

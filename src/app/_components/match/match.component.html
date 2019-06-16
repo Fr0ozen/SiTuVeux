@@ -1,25 +1,22 @@
-<div class="col-xl-8 col-sm-7 col-md-6">
-    <div class="live-left">
-        <div class="live-border">
-            <ul class="list">
-                <li>
-                    <span>
-                        <div>
-                            <p class="scores">{{team1Score}}</p>
-                            <img src="assets/img/kill-one.png" alt="">
-                            <button (click)="gotRound(0)" [hidden]="!isOrg">Add 1</button>
-                        </div>
-                    </span>
-                    <span><p>vs</p></span>
-                    <span>
-                        <div>
-                            <p class="scores">{{team2Score}}</p>
-                            <img src="assets/img/kill-two.png" alt="">
-                            <button (click)="gotRound(1)" [hidden]="!isOrg">Add 1</button>
-                        </div>
-                    </span>
-                </li>
-            </ul>
+<div class="container mt-5 text-white text-center" *ngIf="dataLoaded">
+    <div class="justify-content-center">
+        <h1 class="display-3" *ngIf="!match.isstarted && !match.isover">Le match n'a pas commencé</h1>
+        <h1 class="display-1" *ngIf="match.isstarted && !match.isover">Manche {{currentRound}}</h1>
+        <h1 class="display-1" *ngIf="match.isover">Match terminé</h1>
+        <div class="row mt-5">
+            <div class="col team">
+                <p class="teamName">{{team1Name}}</p>
+                <p class="score">{{team1Score}}</p>
+                <button class="btn btn-primary" (click)="gotRound(0)" *ngIf="user && (user.isorganizer || isReferee) && team1Score < 16 && team2Score < 16 && match.isstarted && !match.isover">Manche remportée</button>
+            </div>
+            <div class="col-5 mt-5">
+                <h3>vs</h3>
+            </div>
+            <div class="col team">
+                <p class="teamName">{{team2Name}}</p>
+                <p class="score">{{team2Score}}</p>
+                <button class="btn btn-primary" (click)="gotRound(1)" *ngIf="user && (user.isorganizer || isReferee) && team1Score < 16 && team2Score < 16 && match.isstarted && !match.isover">Manche remportée</button>
+            </div>
         </div>
     </div>
 </div>

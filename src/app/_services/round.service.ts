@@ -7,7 +7,7 @@ export class RoundService {
     constructor(private http: HttpClient) {
     }
 
-    getAllRoundsMatch(user: User, idmatch: number) {
-        return this.http.post<any>('http://localhost:3000/getAllRoundsMatch', {user, idmatch});
+    getMatchScore(user: User, idmatch: number) {
+        return this.http.post<any>('http://localhost:3000/getMatchScore', {user, idmatch});
     }
 }

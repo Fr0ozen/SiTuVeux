@@ -21,7 +21,7 @@ export class PusherService {
         this.channel = this.pusher.subscribe('events-channel');
     }
 
-    like(user: User, teamNumber, teamScore, rounds: Round[], idwinningteam) {
-        this.http.post('http://localhost:3000/addRound', {user, teamNumber, rounds, teamScore, idwinningteam}).subscribe();
+    addRound(user: User, teamNumber: number, teamScore: number, rounds: Round[], idwinningteam: number, idmatch: number) {
+        return this.http.post<any>('http://localhost:3000/addRound', {user, teamNumber, rounds, teamScore, idwinningteam, idmatch});
     }
 }

@@ -121,6 +121,6 @@ export class TournamentComponent {
     }
 
     onMatchRowClicked(params) {
-        //this.router.navigate(['/bracket', { 'tournamentId': params.data.id}]);
+        this.router.navigate(['/match', { 'matchId': params.data.id}]);
     }
 }
