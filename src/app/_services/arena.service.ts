@@ -2,6 +2,7 @@
 import {HttpClient} from '@angular/common/http';
 import {User} from '../_models/User';
 import {Arena} from '../_models/Arena';
+import {environment} from '../../environments/environment';
 
 @Injectable({providedIn: 'root'})
 export class ArenaService {
@@ -9,10 +10,10 @@ export class ArenaService {
     }
 
     getAllArena(user: User) {
-        return this.http.post<any>('http://localhost:3000/getAllArena', {user});
+        return this.http.post<any>(environment.restIp + ':3000/getAllArena', {user});
     }
 
     createArena(user: User, arena: Arena) {
-        return this.http.post<any>('http://localhost:3000/createArena', {user, arena});
+        return this.http.post<any>(environment.restIp + ':3000/createArena', {user, arena});
     }
 }

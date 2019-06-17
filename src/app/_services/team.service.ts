@@ -2,6 +2,7 @@
 import {HttpClient} from '@angular/common/http';
 import {User} from '../_models/User';
 import {Team} from '../_models/Team';
+import {environment} from '../../environments/environment';
 
 @Injectable({providedIn: 'root'})
 export class TeamService {
@@ -9,10 +10,10 @@ export class TeamService {
     }
 
     getAllTeam(user: User) {
-        return this.http.post<any>('http://localhost:3000/getAllTeam', {user});
+        return this.http.post<any>(environment.restIp + ':3000/getAllTeam', {user});
     }
 
     createTeam(user: User, team: Team) {
-        return this.http.post<any>('http://localhost:3000/createTeam', {user, team});
+        return this.http.post<any>(environment.restIp + ':3000/createTeam', {user, team});
     }
 }

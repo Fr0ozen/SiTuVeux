@@ -22,6 +22,6 @@ export class PusherService {
     }
 
     addRound(user: User, teamNumber: number, teamScore: number, rounds: Round[], idwinningteam: number, idmatch: number) {
-        return this.http.post<any>('http://localhost:3000/addRound', {user, teamNumber, rounds, teamScore, idwinningteam, idmatch});
+        return this.http.post<any>(environment.restIp + ':3000/addRound', {user, teamNumber, rounds, teamScore, idwinningteam, idmatch});
     }
 }
